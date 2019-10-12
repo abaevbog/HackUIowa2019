@@ -8,7 +8,12 @@ class Info extends Component{
 
     render(){
         return (
-            <div>Info</div>
+            <div className="row">
+              <div className="col-12">
+                <h1>Vickrey Auctions</h1>
+                //TODO: page and copy
+              </div>
+            </div>
         );
     }
 }
