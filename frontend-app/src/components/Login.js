@@ -9,42 +9,39 @@ class Login extends Component{
     constructor(props){
         super(props);
     }
+    
+    registerUser() {
+      console.log("This will make a call to Blockstack API");
+    }
 
     render(){
         return (
             <div>
                 <div className = "header">
-                    <text>Welcome to Vickrey Auctions</text>
+                    <text>Sign up for Vickrey Auctions</text>
                 </div>
-                <div>
-                    <Button>Sign Up</Button>
-                    <Button>Log In</Button>
-                </div>
-                <div class="col-sm">
-                <div className = "SignUp">
-                    <Form>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
-                            <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                            </Form.Text>
-                        </Form.Group>
+                <div class="col-12 col-md-4 offset-md-4">
+                  <Form>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Agree to the Terms of Service" />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Submit
-                        </Button>
-                        </Form>
-                    
-                </div>
-                </div>
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Form.Group controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Agree to the Terms of Service" />
+                    </Form.Group>
+                    <Button variant="primary" onClick={this.registerUser}>
+                        Submit
+                    </Button>
+                    </Form>
+              </div>
             </div>
         );
     }
