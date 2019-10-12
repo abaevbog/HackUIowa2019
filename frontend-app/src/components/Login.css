@@ -1,0 +1,30 @@
+
+.LoginBox {
+  background-color: lightgrey;
+  width: 230px;
+  border: 15px solid rgb(64, 79, 212);
+  padding: 50px;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+  }
+
+  .SignUp {
+    background-color: rgb(136, 199, 214);
+    width: 430px;
+    border: 15px solid rgb(64, 79, 212);
+    padding: 50px;
+    text-align: center;
+    color: rgb(15, 34, 46);
+    font-size: 20px;
+    margin-left: 36%;
+  }
