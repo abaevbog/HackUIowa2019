@@ -32,8 +32,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Login> </Login>
-        <Button variant="primary">Does bootstrap work </Button>
+        <Login></Login>
+        
       </div>
     );
   }
