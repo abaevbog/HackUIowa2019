@@ -4,7 +4,7 @@
 /frontend-app/node_modules
 /frontend-app/.pnp
 /frontend-app/.pnp.js
-
+/backend/node_modules
 # testing
 /frontend-app/coverage
 
