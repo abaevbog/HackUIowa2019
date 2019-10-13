@@ -9,8 +9,34 @@ class Footer extends Component{
 
     render(){
         return (
-          <div></div>
-            //implement boostrap footer
+            
+            <footer class="page-footer font-small blue pt-4">
+                <div class="bg-info text-white">
+
+                    
+                    <div class="container-fluid text-center text-md-left">
+
+                        
+                        <div class="row">
+                        
+
+                        
+                        <div class="col-md-12">
+                            <h4 class="text-center">DEVELOPED AT THE UNIVERSITY OF IOWA 2019 FOR HACKUIOWA 2019</h4>
+                            <h6 class="text-center">Created by Philip Kiely, Bogdan Abaev, Michael Andrzejewski, and Nameera Dawood</h6>
+                        </div>
+                        
+                        
+
+                    
+                        
+
+                    </div>
+                    
+                </div>
+                </div>
+                
+            </footer>
         );
     }
 }
