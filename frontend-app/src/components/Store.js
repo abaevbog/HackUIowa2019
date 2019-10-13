@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import ProductCard from './ProductCard';
 
 class Store extends Component{
 
@@ -15,19 +16,9 @@ class Store extends Component{
         
                 <div class="col-sm">
                         <div class="card" style={{width: "18 rem",}}>
-    <img class="card-img-top" src="https://static.acer.com/up/Resource/Acer/Accessories/Predator/Predator_Aethon_500/Image/20180321/Predator-Aethon_500_sku-main.png"></img>
-    <div class="card-body">
-    <h5 class="card-title">Blue Light Keyboard</h5>
-    <p class="card-text">Minimum Price 
-    <br></br>
-    Bids Placed So Far 
-    <br></br>
-    #of Products
-    <br></br>
-    Time Remaining
-    <br></br>
-    </p>
-    <Button onClick={()=>{this.props.goToPage("product")}}>Place Bid</Button>
+                        <img class="card-img-top" src="https://static.acer.com/up/Resource/Acer/Accessories/Predator/Predator_Aethon_500/Image/20180321/Predator-Aethon_500_sku-main.png"></img>
+                        <div class="card-body">
+    <ProductCard buttonHidden={false} goToPage={this.props.goToPage}></ProductCard>
     </div>
     </div>
                 </div>

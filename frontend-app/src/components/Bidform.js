@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import ProductCard from './ProductCard';
 
 class Bidform extends Component{
 
@@ -7,9 +8,6 @@ class Bidform extends Component{
         super(props);
         this.state = {
           minimumBid: 500,
-          Bidssofar: 35,
-          Numberofprods:20,
-          Timeremaining:"1 day 10 minutes",
         }
         this.validateBid = this.validateBid.bind(this);
     }
@@ -23,18 +21,21 @@ class Bidform extends Component{
           elem.hidden = false;
           elem.innerText = "Bids must be numbers";
         });
+        return
       }
       if (bid != confirmBid) {
         Array.from(document.getElementsByClassName('bidWarning')).forEach(function (elem) {
           elem.hidden = false;
           elem.innerText = "Bids must be equal";
         });
+        return
       }
       if (bid < this.state.minimumBid) {
         Array.from(document.getElementsByClassName('bidWarning')).forEach((elem) => {
           elem.hidden = false;
           elem.innerText = "Bid must be at least $" + this.state.minimumBid;
         });
+        return
       }
     }
 
@@ -42,24 +43,13 @@ class Bidform extends Component{
         return (
             <div class="container">
       <h1>&nbsp;</h1>
-
       <div class="row">
       <div class="col-md-4 order-md-2">
-                        <div class="card" style={{width: "18 rem",}}>
-    <img class="card-img-top" src="https://static.acer.com/up/Resource/Acer/Accessories/Predator/Predator_Aethon_500/Image/20180321/Predator-Aethon_500_sku-main.png"></img>
-    <div class="card-body">
-    <h5 class="card-title">Blue Light Keyboard</h5>
-    <p class="card-text">Minimum Bid= ${this.state.minimumBid}
-    <br></br>
-    Bids Placed So Far: {this.state.Bidssofar}
-    <br></br>
-    Products: {this.state.Numberofprods}
-    <br></br>
-    Time Remaining: {this.state.Timeremaining}
-    
-    </p>
-    
-    </div>
+      <div class="card" style={{width: "18 rem",}}>
+      <img class="card-img-top" src="https://static.acer.com/up/Resource/Acer/Accessories/Predator/Predator_Aethon_500/Image/20180321/Predator-Aethon_500_sku-main.png"></img>
+      <div class="card-body">
+      <ProductCard buttonHidden={true} goToPage={this.props.goToPage}></ProductCard>
+      </div>
     </div>
                 </div>
         <div class="col-md-8 order-md-1">
@@ -182,7 +172,7 @@ class Bidform extends Component{
             <button class="btn btn-primary btn-lg btn-block"  onClick={this.validateBid}>Place Bid</button>
         </div>
       </div>
-    </div>
+      </div>
         );
     }
 }

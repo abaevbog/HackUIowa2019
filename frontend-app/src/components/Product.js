@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import ProductCard from './ProductCard';
+
 class Product extends Component{
 
     constructor(props){
@@ -26,11 +28,7 @@ class Product extends Component{
           <h1>&nbsp;</h1>
           <h1>&nbsp;</h1>
           <h1>&nbsp;</h1>
-      <p class="h1">Product Name</p>
-      <p>minimum bid</p>
-    <p># of bids</p>
-      <p># of products</p>
-    <p>time remaining</p>
+    <ProductCard buttonHidden={true} goToPage={this.props.goToPage}></ProductCard>
     <Button onClick={()=>{this.props.goToPage("Bidform")}}>Place Bid</Button>
       </div>
       </div>
