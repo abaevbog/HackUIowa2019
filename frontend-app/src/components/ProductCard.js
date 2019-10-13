@@ -5,34 +5,22 @@ class ProductCard extends Component{
 
     constructor(props){
         super(props);
-        this.state = {
-          image: "https://static.acer.com/up/Resource/Acer/Accessories/Predator/Predator_Aethon_500/Image/20180321/Predator-Aethon_500_sku-main.png",
-          minimumBid: 500,
-          Bidssofar: 35,
-          Numberofprods:20,
-          Timeremaining:"1 day 10 minutes",
-          buttonHidden: props.buttonHidden,
-        }
-    }
-    
-    goToPage(s) {
-      this.setState({page: s});
-      console.log("Called");
     }
 
     render(){
         return (
           <div>
-          <h5 class="card-title">Blue Light Keyboard</h5>
-          <p class="card-text">Minimum Bid= ${this.state.minimumBid}
+          <h5 class="card-title">{this.props.product.title}</h5>
+          <h6 class="card-text">{this.props.product.seller}</h6>
+          <p class="card-text">Minimum Bid: ${this.props.product.minimumBid}
           <br></br>
-          Bids Placed So Far: {this.state.Bidssofar}
+          Bids Placed So Far: {this.props.product.Bidssofar}
           <br></br>
-          Products: {this.state.Numberofprods}
+          Products: {this.props.product.Numberofprods}
           <br></br>
-          Time Remaining: {this.state.Timeremaining}
+          Time Remaining: {this.props.product.Timeremaining}
           </p>
-          <Button hidden={this.state.buttonHidden} onClick={()=>{this.props.goToPage("product")}}>Place Bid</Button>
+          <Button hidden={this.props.buttonHidden} onClick={()=>{this.props.goToPage("product")}}>Place Bid</Button>
           </div>
         );
     }

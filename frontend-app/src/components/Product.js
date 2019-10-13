@@ -28,7 +28,7 @@ class Product extends Component{
           <h1>&nbsp;</h1>
           <h1>&nbsp;</h1>
           <h1>&nbsp;</h1>
-    <ProductCard buttonHidden={true} goToPage={this.props.goToPage}></ProductCard>
+    <ProductCard product={this.props.product} buttonHidden={true} goToPage={this.props.goToPage}></ProductCard>
     <Button onClick={()=>{this.props.goToPage("Bidform")}}>Place Bid</Button>
       </div>
       </div>

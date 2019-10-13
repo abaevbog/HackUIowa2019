@@ -48,7 +48,7 @@ class Bidform extends Component{
       <div class="card" style={{width: "18 rem",}}>
       <img class="card-img-top" src="https://static.acer.com/up/Resource/Acer/Accessories/Predator/Predator_Aethon_500/Image/20180321/Predator-Aethon_500_sku-main.png"></img>
       <div class="card-body">
-      <ProductCard buttonHidden={true} goToPage={this.props.goToPage}></ProductCard>
+      <ProductCard product={this.props.product} buttonHidden={true} goToPage={this.props.goToPage}></ProductCard>
       </div>
     </div>
                 </div>
