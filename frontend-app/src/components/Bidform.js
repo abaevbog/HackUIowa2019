@@ -89,7 +89,7 @@ class Bidform extends Component{
                   <span class="input-group-text">@</span>
                 </div>
                 <input type="text" class="form-control" id="username" placeholder="Username" required=""></input>
-                <div class="invalid-feedback" style={{width: 100%,}}>
+                <div class="invalid-feedback" style={{width: "100%",}}>
                   Your username is required.
                 </div>
               </div>
