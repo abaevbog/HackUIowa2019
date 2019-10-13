@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Button from 'react-bootstrap/Button';
 class Product extends Component{
 
     constructor(props){
@@ -9,43 +9,39 @@ class Product extends Component{
     render(){
         return (
             <div class="container"> 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Vickrey Auctions</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Products</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">My Account</a>
-      </li>
-      
-      
-    </ul>
-   
-  </div>
-</nav>
+     
       
 <div class="row">
     <div class="col-sm-8">
-      <img src="C:\Users\16362\HackUIowa2019\frontend-app\src\Capture.JPG" >
+      <img src="https://static.acer.com/up/Resource/Acer/Accessories/Predator/Predator_Aethon_500/Image/20180321/Predator-Aethon_500_sku-main.png" >
 
       </img>
       </div>
+    
       <div class="col-sm-4">
-    <p class="h1">Product Name</p>
-    <p>minimum bid</p>
+          <h1>&nbsp;</h1>
+          <h1>&nbsp;</h1>
+          <h1>&nbsp;</h1>
+      <p class="h1">Product Name</p>
+      <p>minimum bid</p>
     <p># of bids</p>
       <p># of products</p>
     <p>time remaining</p>
-    <button >BID</button>
+    <Button onClick={()=>{this.props.goToPage("Bidform")}}>Place Bid</Button>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-8">
+    <ul>
+<li>Wireless TV keyboard with touchpad: Enjoy effortless control of your TV connected computer</li>
+<li>Compact and slim: Perfect for the living room</li>
+<li>Comfortable, quiet keys and large (3 inch) touchpad: The ideal HTPC keyboard. Overall Dimensions Height 5.5 inch, Width 14 inch, Depth 1 inch. Touchpad Height 3 inch, Width 2 inch</li>
+<li>10 meter (33 foot) wireless range: Ensures trouble free connection in the largest room ( Wireless range may vary depending on operating environment and computer setup)</li>
+<li>Familiar, media friendly key layout: Eliminates any learning curve while adding easy access volume controls and arrow keys</li>
+<li>Plug and play design: Unifying receiver makes setup of your TV keyboard a snap. Connection type: Logitech unifying protocol 2.4 GigaHertz</li>
+<li>18 months battery life: Goes for well over a year without changing batteries. Wide compatibility: Works with Windows 7, 8, 10 or later; Android 5.0 or later; Chrome OS</li>
+</ul>
+    
     </div>
     </div>
     </div>

@@ -8,7 +8,8 @@ import Info from './components/Info';
 import Navbar from './components/Utils/Navbar';
 import Footer from './components/Utils/Footer';
 import Button from 'react-bootstrap/Button';
-
+import Product from './components/Product';
+import Bidform from './components/Bidform';
 class App extends Component {
 
   constructor(props) {
@@ -16,7 +17,7 @@ class App extends Component {
     // initialize state here
     this.state = {
         buttonDown:false,
-        page: 0,
+        page: "product",
     }
     // and bind methods to the current scope
     //this.method = this.method.bind(this).
@@ -47,9 +48,13 @@ class App extends Component {
     } else if (this.state.page === "dashboard"){
       page = <Dashboard> </Dashboard>;
     } else if (this.state.page === "store"){
-      page = <Store> </Store>;
-    } else {
-      page = <Info> </Info>;
+      page = <Store goToPage={this.goToPage}> </Store>;
+    } else if (this.state.page === "product") {
+      page = <Product goToPage={this.goToPage}> </Product>;
+    } else if (this.state.page === "Bidform") {
+      page = <Bidform goToPage={this.goToPage} > </Bidform>;
+    } else{ 
+      page = <Info> </Info>
     }
     return (
       <div className="App">
