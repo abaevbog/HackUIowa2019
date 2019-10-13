@@ -7,9 +7,13 @@ class Bidform extends Component{
         super(props);
         this.state = {
           minimumBid: 500,
+          Bidssofar: 35,
+          Numberofprods:20,
+          Timeremaining:"1 day 10 minutes",
         }
         this.validateBid = this.validateBid.bind(this);
     }
+  
     
     validateBid() {
       var bid = parseInt(document.getElementById("bid").value)
@@ -40,19 +44,24 @@ class Bidform extends Component{
       <h1>&nbsp;</h1>
 
       <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">3</span>
-          </h4>
-          
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code"></input>
-              <div class="input-group-append">
-                <button class="btn btn-secondary">Redeem</button>
-              </div>
-            </div>
-        </div>
+      <div class="col-md-4 order-md-2">
+                        <div class="card" style={{width: "18 rem",}}>
+    <img class="card-img-top" src="https://static.acer.com/up/Resource/Acer/Accessories/Predator/Predator_Aethon_500/Image/20180321/Predator-Aethon_500_sku-main.png"></img>
+    <div class="card-body">
+    <h5 class="card-title">Blue Light Keyboard</h5>
+    <p class="card-text">Minimum Bid= ${this.state.minimumBid}
+    <br></br>
+    Bids Placed So Far: {this.state.Bidssofar}
+    <br></br>
+    Products: {this.state.Numberofprods}
+    <br></br>
+    Time Remaining: {this.state.Timeremaining}
+    
+    </p>
+    
+    </div>
+    </div>
+                </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Bidding form</h4>
             <div class="row">
