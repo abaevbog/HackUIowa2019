@@ -5,12 +5,39 @@ class Bidform extends Component{
 
     constructor(props){
         super(props);
+        this.state = {
+          minimumBid: 500,
+        }
+        this.validateBid = this.validateBid.bind(this);
+    }
+    
+    validateBid() {
+      var bid = parseInt(document.getElementById("bid").value)
+      var confirmBid = parseInt(document.getElementById("confirmBid").value)
+      if (isNaN(bid) || isNaN(confirmBid)) {
+        Array.from(document.getElementsByClassName('bidWarning')).forEach(function (elem) {
+          elem.hidden = false;
+          elem.innerText = "Bids must be numbers";
+        });
+      }
+      if (bid != confirmBid) {
+        Array.from(document.getElementsByClassName('bidWarning')).forEach(function (elem) {
+          elem.hidden = false;
+          elem.innerText = "Bids must be equal";
+        });
+      }
+      if (bid < this.state.minimumBid) {
+        Array.from(document.getElementsByClassName('bidWarning')).forEach((elem) => {
+          elem.hidden = false;
+          elem.innerText = "Bid must be at least $" + this.state.minimumBid;
+        });
+      }
     }
 
     render(){
         return (
             <div class="container">
-      
+      <h1>&nbsp;</h1>
 
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
@@ -19,30 +46,27 @@ class Bidform extends Component{
             <span class="badge badge-secondary badge-pill">3</span>
           </h4>
           
-          <form class="card p-2">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Promo code"></input>
               <div class="input-group-append">
-                <button type="submit" class="btn btn-secondary">Redeem</button>
+                <button class="btn btn-secondary">Redeem</button>
               </div>
             </div>
-          </form>
         </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Bidding form</h4>
-          <form class="needs-validation" novalidate="">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="bid">Enter Bid In Dollars</label>
-                <input type="number" class="form-control" id="bid" placeholder="" value="" required=""></input>
-                <div class="invalid-feedback">
+                <input class="form-control" id="bid" placeholder={this.state.minimumBid} required></input>
+                <div class="alert alert-warning bidWarning" hidden>
                   Valid bid is required.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="lastName">Re-enter and confirm Bid</label>
-                <input type="number" class="form-control" id="lastName" placeholder="" value="" required=""></input>
-                <div class="invalid-feedback">
+                <label for="confirmBid">Re-enter and confirm Bid</label>
+                <input class="form-control" id="confirmBid" placeholder={this.state.minimumBid} required></input>
+                <div class="alert alert-warning bidWarning" hidden>
                   Valid bid is required.
                 </div>
               </div>
@@ -146,19 +170,9 @@ class Bidform extends Component{
               </div>
             </div>
             <hr class="mb-4"></hr>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Place Bid</button>
-          </form>
+            <button class="btn btn-primary btn-lg btn-block"  onClick={this.validateBid}>Place Bid</button>
         </div>
       </div>
-
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2017-2018 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
     </div>
         );
     }

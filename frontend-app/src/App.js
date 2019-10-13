@@ -17,7 +17,7 @@ class App extends Component {
     // initialize state here
     this.state = {
         buttonDown:false,
-        page: "product",
+        page: "Bidform",
     }
     // and bind methods to the current scope
     //this.method = this.method.bind(this).
