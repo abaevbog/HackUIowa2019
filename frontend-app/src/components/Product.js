@@ -4,6 +4,10 @@ class Product extends Component{
 
     constructor(props){
         super(props);
+        //ID
+        //Name
+        //description
+        //URL (images)
     }
 
     render(){

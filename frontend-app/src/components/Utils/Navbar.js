@@ -9,6 +9,12 @@ class Navbar extends Component{
     //write functions to change page state using this.props
 
     render(){
+      var accountLink;
+      if (this.props.loggedin) {
+        accountLink = <a className="nav-link" onClick={()=>{this.props.goToPage("dashboard")}}>My Account</a>;
+      } else {
+        accountLink = <a className="nav-link" onClick={()=>{this.props.goToPage("login")}}>Log In</a>;
+      }
         return (
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" onClick={()=>{this.props.goToPage(0)}}>Vickrey Auctions</a>
@@ -24,7 +30,7 @@ class Navbar extends Component{
                 <a className="nav-link" onClick={()=>{this.props.goToPage("store")}}>Products</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={()=>{this.props.goToPage("login")}}>My Account</a>
+                {accountLink}
               </li>
             </ul>
           </div>

@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar goToPage={this.goToPage}> </Navbar>
-        <div className="container">
+        <div className="container-fluid">
           {page}
         </div>
         <Footer> </Footer>
