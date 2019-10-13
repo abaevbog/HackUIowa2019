@@ -6,10 +6,6 @@ class Product extends Component{
 
     constructor(props){
         super(props);
-        //ID
-        //Name
-        //description
-        //URL (images)
     }
 
     render(){
@@ -27,9 +23,11 @@ class Product extends Component{
       <div class="col-sm-4">
           <h1>&nbsp;</h1>
           <h1>&nbsp;</h1>
-          <h1>&nbsp;</h1>
-    <ProductCard product={this.props.product} buttonHidden={true} goToPage={this.props.goToPage}></ProductCard>
-    <Button onClick={()=>{this.props.goToPage("Bidform")}}>Place Bid</Button>
+          <div class="alert alert-success" hidden={!this.props.hasBid}>
+            Bid Placed!
+          </div>
+    <ProductCard hasBid={this.props.hasBid} product={this.props.product} buttonHidden={true} goToPage={this.props.goToPage}></ProductCard>
+    <Button hidden={this.props.hasBid} onClick={()=>{this.props.goToPage("Bidform")}}>Place Bid</Button>
       </div>
       </div>
       <div class="row">

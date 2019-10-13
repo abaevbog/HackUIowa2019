@@ -56,6 +56,7 @@ class App extends Component {
     // and bind methods to the current scope
     //this.method = this.method.bind(this).
     this.goToPage = this.goToPage.bind(this);
+    this.incrementBid = this.incrementBid.bind(this);
   }
 
 
@@ -73,6 +74,11 @@ class App extends Component {
     this.setState({page: s});
     console.log("Called");
   }
+  
+  incrementBid() {
+    this.setState({hasBid: true})
+    this.setState({page: "product"});
+  }
 
 
   render() { 
@@ -84,9 +90,9 @@ class App extends Component {
     } else if (this.state.page === "store"){
       page = <Store products={this.state.products} goToPage={this.goToPage}> </Store>;
     } else if (this.state.page === "product") {
-      page = <Product product={this.state.products[0]} goToPage={this.goToPage}> </Product>;
+      page = <Product hasBid={this.state.hasBid} product={this.state.products[0]} goToPage={this.goToPage}> </Product>;
     } else if (this.state.page === "Bidform") {
-      page = <Bidform product={this.state.products[0]} goToPage={this.goToPage} > </Bidform>;
+      page = <Bidform incrementBid={this.incrementBid} product={this.state.products[0]} goToPage={this.goToPage} > </Bidform>;
     } else{ 
       page = <Info> </Info>
     }

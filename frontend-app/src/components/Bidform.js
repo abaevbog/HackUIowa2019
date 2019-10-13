@@ -6,14 +6,11 @@ class Bidform extends Component{
 
     constructor(props){
         super(props);
-        this.state = {
-          minimumBid: 500,
-        }
-        this.validateBid = this.validateBid.bind(this);
+        this.checkout = this.checkout.bind(this);
     }
   
     
-    validateBid() {
+    checkout() {
       var bid = parseInt(document.getElementById("bid").value)
       var confirmBid = parseInt(document.getElementById("confirmBid").value)
       if (isNaN(bid) || isNaN(confirmBid)) {
@@ -22,21 +19,24 @@ class Bidform extends Component{
           elem.innerText = "Bids must be numbers";
         });
         return
-      }
-      if (bid != confirmBid) {
+      } else if (bid != confirmBid) {
         Array.from(document.getElementsByClassName('bidWarning')).forEach(function (elem) {
           elem.hidden = false;
           elem.innerText = "Bids must be equal";
         });
         return
-      }
-      if (bid < this.state.minimumBid) {
+      } else if (bid < this.props.product.minimumBid) {
         Array.from(document.getElementsByClassName('bidWarning')).forEach((elem) => {
           elem.hidden = false;
-          elem.innerText = "Bid must be at least $" + this.state.minimumBid;
+          elem.innerText = "Bid must be at least $" + this.props.product.minimumBid;
         });
         return
+      } else {
+        Array.from(document.getElementsByClassName('bidWarning')).forEach((elem) => {
+          elem.hidden = true;
+        });
       }
+      this.props.incrementBid();
     }
 
     render(){
@@ -57,14 +57,14 @@ class Bidform extends Component{
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="bid">Enter Bid In Dollars</label>
-                <input class="form-control" id="bid" placeholder={this.state.minimumBid} required></input>
+                <input class="form-control" id="bid" placeholder={this.props.product.minimumBid} required></input>
                 <div class="alert alert-warning bidWarning" hidden>
                   Valid bid is required.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="confirmBid">Re-enter and confirm Bid</label>
-                <input class="form-control" id="confirmBid" placeholder={this.state.minimumBid} required></input>
+                <input class="form-control" id="confirmBid" placeholder={this.props.product.minimumBid} required></input>
                 <div class="alert alert-warning bidWarning" hidden>
                   Valid bid is required.
                 </div>
@@ -169,7 +169,7 @@ class Bidform extends Component{
               </div>
             </div>
             <hr class="mb-4"></hr>
-            <button class="btn btn-primary btn-lg btn-block"  onClick={this.validateBid}>Place Bid</button>
+            <button class="btn btn-primary btn-lg btn-block"  onClick={this.checkout}>Place Bid</button>
         </div>
       </div>
       </div>
