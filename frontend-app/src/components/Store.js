@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 
 class Store extends Component{
 
@@ -26,7 +27,7 @@ class Store extends Component{
     Time Remaining
     <br></br>
     </p>
-    <a href="#" class="btn btn-primary">Place Bid</a>
+    <Button onClick={()=>{this.props.goToPage("product")}}>Place Bid</Button>
     </div>
     </div>
                 </div>
